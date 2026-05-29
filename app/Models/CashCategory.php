@@ -14,6 +14,7 @@ class CashCategory extends Model
         'name',
         'type',
         'description',
+        'status',
     ];
 
     public function cashTransactions(): HasMany

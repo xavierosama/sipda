@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\CashCategoryController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\LetterController;
 use App\Http\Controllers\MeetingNoteController;
@@ -30,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('activities', ActivityController::class);
     Route::resource('letters', LetterController::class);
     Route::resource('meeting-notes', MeetingNoteController::class);
+    Route::resource('cash-categories', CashCategoryController::class);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

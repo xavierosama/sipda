@@ -69,7 +69,7 @@
                             <a href="#" class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-950">Kas Masuk</a>
                             <a href="#" class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-950">Kas Keluar</a>
                             <a href="#" class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-950">Saldo Kas</a>
-                            <a href="#" class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-950">Kategori Transaksi</a>
+                            <a href="{{ route('cash-categories.index') }}" class="block rounded-lg px-3 py-2 text-sm {{ request()->routeIs('cash-categories.*') ? 'bg-emerald-50 font-semibold text-emerald-800' : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950' }}">Kategori Transaksi</a>
                         </div>
                     </div>
 
