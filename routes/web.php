@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\LetterController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\ProgramController;
@@ -26,6 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('positions', PositionController::class);
     Route::resource('programs', ProgramController::class);
     Route::resource('activities', ActivityController::class);
+    Route::resource('letters', LetterController::class);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
