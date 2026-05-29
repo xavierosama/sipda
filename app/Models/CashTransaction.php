@@ -13,17 +13,21 @@ class CashTransaction extends Model
     protected $fillable = [
         'cash_category_id',
         'member_id',
+        'activity_id',
+        'created_by',
         'transaction_date',
         'title',
         'type',
         'amount',
         'description',
         'proof_file_path',
+        'archived_at',
     ];
 
     protected $casts = [
         'transaction_date' => 'date',
         'amount' => 'decimal:2',
+        'archived_at' => 'datetime',
     ];
 
     public function cashCategory(): BelongsTo
@@ -34,5 +38,20 @@ class CashTransaction extends Model
     public function member(): BelongsTo
     {
         return $this->belongsTo(Member::class);
+    }
+
+    public function activity(): BelongsTo
+    {
+        return $this->belongsTo(Activity::class);
+    }
+
+    public function creator(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'created_by');
     }
 }

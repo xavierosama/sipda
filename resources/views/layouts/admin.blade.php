@@ -66,9 +66,9 @@
                     <div>
                         <p class="px-3 text-xs font-semibold uppercase tracking-wide text-slate-400">Bendahara</p>
                         <div class="mt-2 space-y-1">
-                            <a href="#" class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-950">Kas Masuk</a>
-                            <a href="#" class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-950">Kas Keluar</a>
-                            <a href="#" class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-950">Saldo Kas</a>
+                            <a href="{{ route('cash-transactions.index') }}" class="block rounded-lg px-3 py-2 text-sm {{ request()->routeIs('cash-transactions.*') && ! request('type') ? 'bg-emerald-50 font-semibold text-emerald-800' : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950' }}">Semua Transaksi</a>
+                            <a href="{{ route('cash-transactions.index', ['type' => 'income']) }}" class="block rounded-lg px-3 py-2 text-sm {{ request()->routeIs('cash-transactions.*') && request('type') === 'income' ? 'bg-emerald-50 font-semibold text-emerald-800' : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950' }}">Kas Masuk</a>
+                            <a href="{{ route('cash-transactions.index', ['type' => 'expense']) }}" class="block rounded-lg px-3 py-2 text-sm {{ request()->routeIs('cash-transactions.*') && request('type') === 'expense' ? 'bg-emerald-50 font-semibold text-emerald-800' : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950' }}">Kas Keluar</a>
                             <a href="{{ route('cash-categories.index') }}" class="block rounded-lg px-3 py-2 text-sm {{ request()->routeIs('cash-categories.*') ? 'bg-emerald-50 font-semibold text-emerald-800' : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950' }}">Kategori Transaksi</a>
                         </div>
                     </div>
