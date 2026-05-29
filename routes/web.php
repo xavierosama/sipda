@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\CashCategoryController;
 use App\Http\Controllers\CashTransactionController;
 use App\Http\Controllers\DepartmentController;
@@ -36,6 +37,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('cash-categories', CashCategoryController::class);
     Route::resource('cash-transactions', CashTransactionController::class);
     Route::resource('documents', DocumentController::class);
+    Route::get('attendances/bulk', [AttendanceController::class, 'bulkCreate'])->name('attendances.bulk.create');
+    Route::post('attendances/bulk', [AttendanceController::class, 'bulkStore'])->name('attendances.bulk.store');
+    Route::resource('attendances', AttendanceController::class);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

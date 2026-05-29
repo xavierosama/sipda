@@ -13,6 +13,7 @@ class Attendance extends Model
     protected $fillable = [
         'activity_id',
         'member_id',
+        'created_by',
         'attendance_date',
         'status',
         'checked_in_at',
@@ -32,5 +33,15 @@ class Attendance extends Model
     public function member(): BelongsTo
     {
         return $this->belongsTo(Member::class);
+    }
+
+    public function creator(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'created_by');
     }
 }
