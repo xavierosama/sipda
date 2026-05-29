@@ -11,19 +11,22 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet" />
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <style>
+            [x-cloak] { display: none !important; }
+        </style>
     </head>
-    <body class="font-sans antialiased bg-slate-100 text-slate-900">
-        <div x-data="{ sidebarOpen: false }" class="min-h-screen lg:flex">
+    <body class="font-sans antialiased bg-gray-100 text-slate-900">
+        <div x-data="{ sidebarOpen: false }" class="min-h-screen">
             <div
                 x-cloak
                 x-show="sidebarOpen"
                 x-transition.opacity
-                class="fixed inset-0 z-30 bg-slate-900/50 lg:hidden"
+                class="fixed inset-0 z-30 bg-slate-900/50 md:hidden"
                 @click="sidebarOpen = false"
             ></div>
 
             <aside
-                class="fixed inset-y-0 left-0 z-40 flex w-72 -translate-x-full flex-col border-r border-slate-200 bg-white transition-transform duration-200 lg:static lg:translate-x-0"
+                class="fixed inset-y-0 left-0 z-40 flex w-64 -translate-x-full flex-col border-r border-slate-200 bg-white transition-transform duration-200 md:translate-x-0"
                 :class="{ 'translate-x-0': sidebarOpen }"
             >
                 <div class="flex h-16 items-center gap-3 border-b border-slate-200 px-5">
@@ -89,13 +92,13 @@
                 </nav>
             </aside>
 
-            <div class="min-w-0 flex-1 lg:pl-0">
+            <div class="min-h-screen min-w-0 md:ml-64">
                 <header class="sticky top-0 z-20 border-b border-slate-200 bg-white">
                     <div class="flex h-16 items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
                         <div class="flex items-center gap-3">
                             <button
                                 type="button"
-                                class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 lg:hidden"
+                                class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 md:hidden"
                                 @click="sidebarOpen = true"
                                 aria-label="Buka menu"
                             >
