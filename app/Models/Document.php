@@ -13,12 +13,21 @@ class Document extends Model
     protected $fillable = [
         'department_id',
         'member_id',
+        'activity_id',
+        'uploaded_by',
         'title',
         'category',
+        'document_date',
         'file_path',
         'mime_type',
         'file_size',
         'description',
+        'archived_at',
+    ];
+
+    protected $casts = [
+        'document_date' => 'date',
+        'archived_at' => 'datetime',
     ];
 
     public function department(): BelongsTo
@@ -29,5 +38,20 @@ class Document extends Model
     public function member(): BelongsTo
     {
         return $this->belongsTo(Member::class);
+    }
+
+    public function activity(): BelongsTo
+    {
+        return $this->belongsTo(Activity::class);
+    }
+
+    public function uploader(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'uploaded_by');
+    }
+
+    public function uploadedBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'uploaded_by');
     }
 }

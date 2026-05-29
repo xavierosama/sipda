@@ -5,6 +5,7 @@ use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\CashCategoryController;
 use App\Http\Controllers\CashTransactionController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\LetterController;
 use App\Http\Controllers\MeetingNoteController;
 use App\Http\Controllers\MemberController;
@@ -34,6 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('meeting-notes', MeetingNoteController::class);
     Route::resource('cash-categories', CashCategoryController::class);
     Route::resource('cash-transactions', CashTransactionController::class);
+    Route::resource('documents', DocumentController::class);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
