@@ -57,7 +57,7 @@
                             <a href="{{ route('letters.index') }}" class="block rounded-lg px-3 py-2 text-sm {{ request()->routeIs('letters.*') && ! request('type') ? 'bg-emerald-50 font-semibold text-emerald-800' : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950' }}">Semua Surat</a>
                             <a href="{{ route('letters.index', ['type' => 'incoming']) }}" class="block rounded-lg px-3 py-2 text-sm {{ request()->routeIs('letters.*') && request('type') === 'incoming' ? 'bg-emerald-50 font-semibold text-emerald-800' : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950' }}">Surat Masuk</a>
                             <a href="{{ route('letters.index', ['type' => 'outgoing']) }}" class="block rounded-lg px-3 py-2 text-sm {{ request()->routeIs('letters.*') && request('type') === 'outgoing' ? 'bg-emerald-50 font-semibold text-emerald-800' : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950' }}">Surat Keluar</a>
-                            <a href="#" class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-950">Notulensi</a>
+                            <a href="{{ route('meeting-notes.index') }}" class="block rounded-lg px-3 py-2 text-sm {{ request()->routeIs('meeting-notes.*') ? 'bg-emerald-50 font-semibold text-emerald-800' : 'text-slate-700 hover:bg-slate-50 hover:text-slate-950' }}">Notulensi</a>
                             <a href="#" class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-950">Daftar Hadir</a>
                             <a href="#" class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-950">Arsip Dokumen</a>
                         </div>
